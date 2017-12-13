@@ -37,8 +37,8 @@ void L6470_send(unsigned char value){
   while(!digitalRead(PIN_BUSY)){} //BESYが解除されるまで待機
 
   digitalWrite(PIN_SPI_SS, LOW);
-  SPI.transfer(value);  //制御信号をSPI通信で送る
   SPI.transfer(0);  //制御信号をSPI通信で送る
+  SPI.transfer(value);  //制御信号をSPI通信で送る
   digitalWrite(PIN_SPI_SS, HIGH);
 }
 
